@@ -1,0 +1,26 @@
+Arrays.sort方法默认是从小到大顺序排列
+1、自己提供的方法
+String str = {"abc", "aaa", "cba"};
+Arrays.sort(str, String.CASE_INSENSITIVE_ORDER);
+String中忽略大小写，完全通过字母的顺序进行排序。
+
+2、自定义排序方法 
+出来使用java提供的排序方法外，还可以使用自定义的排序方法，自定义排序方法需要实现java.util.Comparetor接口中的compare方法。 
+int compare(Object obj1, Object obj2) 
+compare方法返回负数时代表不交换 
+compare方法返回0时代表不交换 
+compare方法返回正数时代表交换 
+```java
+class TestCompare implements Comparator<ArraysSort> {
+    public static Comparator<ArraysSort> testcompare = new TestCompare();
+    @Override
+    public int compare(ArraysSort o1, ArraysSort o2) {
+        // TODO Auto-generated method stub
+        if(o1.a < o2.a && o1.b < o2.b) return -1;
+        else if(o1.a == o2.a && o1.b < o2.b) return 0;
+        return 1;
+    }
+
+}
+
+```
